@@ -4,7 +4,7 @@ import linkedin from '../image/linkedin.png';
 import facebook from '../image/facebook.png';
 import github from '../image/github.png';
 
-function test() {
+function home() {
 	return (
 		<div className='landingPage'>
 			<div className='topsm mx-0 my-0 d-md-none'>
@@ -69,4 +69,4 @@ function test() {
 	);
 }
 
-export default test;
+export default home;
