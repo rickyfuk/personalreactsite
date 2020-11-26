@@ -1,21 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import resume from '../image/CV_rickyfuk_for_BCS.pdf';
 
 function Nav() {
 	return (
-		// <nav>
-		// 	<ul>
-		// 		<li>
-		// 			<Link to='/'>Home</Link>
-		// 		</li>
-		// 		<li>
-		// 			<Link to='/try'>Try</Link>
-		// 		</li>
-		// 		<li>
-		// 			<Link to='/another-page/'>Another Page</Link>
-		// 		</li>
-		// 	</ul>
-		// </nav>
 		<nav className='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
 			<div className='contianer'>
 				<h1 className='navbar-brand'>Chung Hei Fuk (Ricky)</h1>
@@ -38,14 +26,16 @@ function Nav() {
 							Home
 						</Link>
 					</li>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
+                    method 1 (link):
 						<Link className='nav-link' to='/try'>
 							Test
-						</Link>
-						{/* <a className='nav-link'>
+                        </Link>
+                    method 2 (a):
+						<a className='nav-link'>
 							<Link to='/try'>Test</Link>
-						</a> */}
-					</li>
+						</a>
+					</li> */}
 					<li className='nav-item'>
 						<a className='nav-link' href='/aboutme'>
 							About Me
@@ -62,7 +52,7 @@ function Nav() {
 						</a>
 					</li>
 					<li className='nav-item'>
-						<a className='nav-link' href='assets/image/CV_rickyfuk_for_BCS.pdf'>
+						<a className='nav-link' href={resume}>
 							Resume
 						</a>
 					</li>
