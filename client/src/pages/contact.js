@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
+import API from '../ulits/api';
 
 function Contact() {
 	// Setting our component's initial state
@@ -16,15 +16,18 @@ function Contact() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(userResponse);
-		axios
-			.post('/send', {
-				data: userResponse,
-			})
-			.then(function () {
-				console.log(`${userResponse.name} is sent`);
-				// Reload the page to get the updated list
-				// location.reload();
+		if (userResponse.name && userResponse.email) {
+			API.sendemail({
+				name: userResponse.name,
+				email: userResponse.email,
+				message: userResponse.message,
 			});
+			// axios.post('/send', userResponse).then(function () {
+			// 	console.log(`${userResponse.name} is sent`);
+			// 	// Reload the page to get the updated list
+			// 	// location.reload();
+			// });
+		}
 	}
 
 	return (

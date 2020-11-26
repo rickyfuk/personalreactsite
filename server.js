@@ -5,11 +5,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+// Body Parser Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // api route
-app.post('/send', (req, res) => {
+app.post('/api/send', (req, res) => {
 	console.log(req.body);
 	const output = `
     <p>You have a new contact request</p>
@@ -62,10 +63,6 @@ app.post('/send', (req, res) => {
 		res.render('contact', { msg: 'Your information has been sent' });
 	});
 });
-
-// Body Parser Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
 	// Serve any static files
