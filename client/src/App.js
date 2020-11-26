@@ -5,8 +5,8 @@ import './App.css';
 import Home from './pages/home';
 import About from './pages/about';
 import Portfolio from './pages/portfolio';
+import Contact from './pages/contact';
 
-const AnotherPage = () => <h1>Another Page</h1>;
 const NotFound = () => <h1>404 Not Found</h1>;
 // class Home extends Component {
 // 	state = {
@@ -86,7 +86,7 @@ const App = () => (
 				<Route path='/' exact component={Home} />
 				<Route path='/aboutme' exact component={About} />
 				<Route path='/portfolio' exact component={Portfolio} />
-				<Route path='/another-page/' component={AnotherPage} />
+				<Route path='/contact' exact component={Contact} />
 				<Route component={NotFound} />
 			</Switch>
 		</div>
