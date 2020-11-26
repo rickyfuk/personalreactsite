@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Test from './pages/test';
 import Home from './pages/home';
+import Nav from './components/nav';
 
 const AnotherPage = () => <h1>Another Page</h1>;
 const NotFound = () => <h1>404 Not Found</h1>;
@@ -79,19 +81,10 @@ const NotFound = () => <h1>404 Not Found</h1>;
 const App = () => (
 	<Router>
 		<div>
-			<nav>
-				<ul>
-					<li>
-						<Link to='/'>Home</Link>
-					</li>
-					<li>
-						<Link to='/another-page/'>Another Page</Link>
-					</li>
-				</ul>
-			</nav>
-
+			<Nav />
 			<Switch>
 				<Route path='/' exact component={Home} />
+				<Route path='/try' exact component={Test} />
 				<Route path='/another-page/' component={AnotherPage} />
 				<Route component={NotFound} />
 			</Switch>
