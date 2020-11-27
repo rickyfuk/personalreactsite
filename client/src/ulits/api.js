@@ -1,11 +1,8 @@
 import axios from 'axios';
 
 export default {
-	// Send the emai
+	// Send the email
 	sendemail: function (sendData) {
-		return axios.post(
-			'https://rfpersonalreactsite.herokuapp.com/api/send',
-			sendData
-		);
+		return axios.post('/api/send', sendData);
 	},
 };

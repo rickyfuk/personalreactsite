@@ -22,13 +22,11 @@ function Contact() {
 				email: userResponse.email,
 				message: userResponse.message,
 			})
-				.then((res) => console.log('message send'))
+				.then(function () {
+					console.log('message send');
+					setUserResponse('');
+				})
 				.catch((err) => console.log(err));
-			// axios.post('/send', userResponse).then(function () {
-			// 	console.log(`${userResponse.name} is sent`);
-			// 	// Reload the page to get the updated list
-			// 	// location.reload();
-			// });
 		}
 	}
 

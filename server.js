@@ -9,15 +9,16 @@ require('dotenv').config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-	// Serve any static files
-	app.use(express.static(path.join(__dirname, 'client/build')));
+// test : move up the app from bottom to upper
+// if (process.env.NODE_ENV === 'production') {
+// 	// Serve any static files
+// 	app.use(express.static(path.join(__dirname, 'client/build')));
 
-	// Handle React routing, return all requests to React app
-	app.get('*', function (req, res) {
-		res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-	});
-}
+// 	// Handle React routing, return all requests to React app
+// 	app.get('*', function (req, res) {
+// 		res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// 	});
+// }
 
 // api route
 app.post('/api/send', (req, res) => {
@@ -74,14 +75,14 @@ app.post('/api/send', (req, res) => {
 	});
 });
 
-// if (process.env.NODE_ENV === 'production') {
-// 	// Serve any static files
-// 	app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === 'production') {
+	// Serve any static files
+	app.use(express.static(path.join(__dirname, 'client/build')));
 
-// 	// Handle React routing, return all requests to React app
-// 	app.get('*', function (req, res) {
-// 		res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// 	});
-// }
+	// Handle React routing, return all requests to React app
+	app.get('*', function (req, res) {
+		res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+	});
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
